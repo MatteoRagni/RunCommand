@@ -36,21 +36,29 @@ class RunBox:
         global Command
         combination = gtk.accelerator_get_label(keyval.keyval,keyval.state)
         if combination == "Ctrl+Mod2+Return" or combination == "Ctrl+Return":
-            Command = 'x-terminal-emulator -T "Run" -e bash -c "' + input.get_text() + ' && syswait.sh "'
+            Command = 'x-terminal-emulator -T "Run" -e bash -c "' + input.get_text() + ' && syswait "'
             window.hide()
             gtk.main_quit()
         return
+
+    # Exit on esc
+    def exit_on_esc(self, widget, keyval):
+        code = gtk.accelerator_get_label(keyval.keyval,keyval.state)
+        if code == "Mod2+Escape" or code == "Escape":
+            gtk.main_quit()
+        return
+
 
     # Draw Gui
     def __init__(self):
 
         ##### CONFIGURATIONS ######
         # Edit here for dimensions
-        H = 600             # window height
+        H = 350             # window height
         W = 45              # window width
         Borders = 10        # window border
         MaxText = 1000      # max text length
-        InputW = 82         # input box width
+        InputW = 40         # input box width
         # Do not edit below #######
 
         # MAINWINDOW
@@ -75,6 +83,7 @@ class RunBox:
         
         # Eventi di inputbox
         #inputbox.add_events(gtk.gdk.KEY_PRESS_MASK)
+        mainwin.connect('key-press-event',self.exit_on_esc)
         inputbox.connect('changed', self.modify_callback, inputbox)
         inputbox.connect('activate', self.activate_callback, inputbox, mainwin)
         inputbox.connect('key-press-event', self.activate_callback_term, inputbox, mainwin)
