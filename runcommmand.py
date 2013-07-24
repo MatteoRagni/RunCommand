@@ -36,7 +36,7 @@ class RunBox:
         global Command
         combination = gtk.accelerator_get_label(keyval.keyval,keyval.state)
         if combination == "Ctrl+Mod2+Return" or combination == "Ctrl+Return":
-            Command = 'x-terminal-emulator -T "Run" -e bash -c "' + input.get_text() + ' && syswait "'
+            Command = 'x-terminal-emulator -T "Run" -e bash -c "' + input.get_text() + ' && syswait.sh "'
             window.hide()
             gtk.main_quit()
         return
