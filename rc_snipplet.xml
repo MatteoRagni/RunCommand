@@ -1,0 +1,8 @@
+<application class="Runcommand">
+  <decor>no</decor>
+  <position force="yes">
+    <x>center</x>
+    <y>center</y>
+  </position>
+  <maximized>no</maximized>
+</application>
