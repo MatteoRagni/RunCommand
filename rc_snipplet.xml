@@ -1,3 +1,5 @@
+<!-- Add in section <applications> -->
+
 <application class="Runcommand">
   <decor>no</decor>
   <position force="yes">
