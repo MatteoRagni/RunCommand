@@ -1,3 +1,12 @@
+<!-- Add in section <keyboard> -->
+
+<keybinding key="A-F2">
+  <action name="Execute">
+    <command>runcommand</command>
+  </action>
+</keybinding>
+
+
 <!-- Add in section <applications> -->
 
 <application class="Runcommand">
